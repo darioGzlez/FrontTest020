@@ -1,0 +1,5 @@
+<button class="extended-fab-button fixed focus:outline-none" mat-fab color="accent" (click)="changeOrder()">
+    <mat-icon *ngIf="!desc">text_rotate_up</mat-icon>
+    <mat-icon *ngIf="desc">text_rotation_down</mat-icon>
+    <span class="extended-fab-button__text hidden sm:inline">Ordenar</span>
+</button>

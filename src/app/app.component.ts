@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UiService } from './services/ui/ui.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'FrontTest020';
+  showListUI: boolean
+
+  constructor(uiService: UiService) {
+    uiService.filterValue.subscribe(x => this.showListUI = x);
+  }
+
 }

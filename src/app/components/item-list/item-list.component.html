@@ -1,0 +1,15 @@
+<mat-list *ngIf="beers.length > 0">
+  <a *ngFor="let item of beers">
+    <div [routerLink]="['/detail', item.id]" class="p-4 hover:bg-pink-200 cursor-pointer">
+      <mat-list-item>
+        <img matListAvatar src="{{ item.image_url }}">
+        <h3 matLine>{{ item.name }}</h3>
+        <p matLine>
+          <span>{{ item.description }}</span>
+        </p>
+        <mat-icon>chevron_right</mat-icon>
+      </mat-list-item>
+    </div>
+    <mat-divider></mat-divider>
+  </a>
+</mat-list>

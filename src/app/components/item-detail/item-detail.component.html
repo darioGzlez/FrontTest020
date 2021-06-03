@@ -1,0 +1,29 @@
+<div class="p-4" *ngIf="beer !== undefined && !onError">
+    <div class="flex items-center mb-4">
+        <img class="w-16 mr-4" src="{{ beer.image_url }}"/>
+        <h1>{{ beer.name }}</h1>
+    </div>
+    <p>{{ beer.description }}</p>
+    <div class="py-5">
+        <h3>Combina con</h3>
+        <u *ngFor="let food of beer.food_pairing">
+            <ol>{{ food }}</ol>
+        </u>
+    </div>
+    <div class="py-5">
+        <h3>Consejos</h3>
+        <p>{{ beer.brewers_tips }}</p>
+    </div>
+    <mat-chip-list aria-label="Tags">
+        <mat-chip *ngFor="let tag of beer.tagline.split(',')" color="primary" selected>{{ tag }}</mat-chip>
+    </mat-chip-list>
+</div>
+
+<div class="p-4" *ngIf="onError">
+    <p class="text-2xl text-center">¡Uppssss! Parece que algo ha ido mal</p>
+    <ng-lottie
+        height="500px"
+        [options]="options$ | async"
+        containerClass="moving-box another-class"
+        ></ng-lottie>
+</div>
